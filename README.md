@@ -2,6 +2,17 @@
 
 O desafio consiste na integração com a API de um SaaS utilizado por nossos clientes, precisamos extrair seus dados através de endpoints REST descritos nesse repositório e exibi-los de forma consolidada.
 
+## Desafio concluído
+A aplicação consiste em uma API REST, foi utizado Node v16.15.1 e express. A seguir algumas instruções:
+1. Com o docker instalado, poderá subir a aplicação com `docker-compose up` ou `npm run dev`
+2. A API pode ser acessada em `http://localhost:3333` e disponibiliza 2 endpoints:
+* `GET /users`
+* `GET /health`
+3. Para rodar os tests, usar o comando `npm test`. O json server deve estar up para rodar os testes de integração e e2e. Para cobertura, `npm run test:coverage`.
+4. O endpoint `GET /users` possibilita fazer queries, sendo possível passar `?paying=true&active=true&name=connor&limit=1` por exemplo.
+
+
+
 ## Nós precisamos que você implemente
 
 1. Uma aplicação simples (console, API, worker, o que se sentir mais confortável) que será responsável pela integração com a API do nosso SaaS Mock para coletar os dados dos usuários cadastrados, converte-los seguindo as regras abaixo e o resultado final.
@@ -28,7 +39,7 @@ O desafio consiste na integração com a API de um SaaS utilizado por nossos cli
 
 5. Também devemos considerar que usuários inativos nunca são pagantes
 
-6. A data de última atividade devolvida na API está no formato Unix Epoch e durante nosso mapeamento devemos converte-la para o padrão ISO-8601 
+6. A data de última atividade devolvida na API está no formato Unix Epoch e durante nosso mapeamento devemos converte-la para o padrão ISO-8601
 
 7. Como o email pode ser uma informação pessoal de contato daquele usuário devemos ofusca-lo sempre que o dominio for diferente de `niuco.com.br` de modo que só seja possível visualizar os primeiros e últimos 2 caracteres do alias e o domínio
 

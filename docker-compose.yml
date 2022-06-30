@@ -8,3 +8,19 @@ services:
     volumes:
       - ./config:/config
     restart: always
+    networks:
+      - app_network
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3333:3333"
+    environment:
+      - PORT=3333
+      - SAAS_MOCK_URL=http://json-server:8080
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
